@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery.js"></script>
+    <script type="text/javascript">
+        function save() {
+            $.ajax({
+                url: 'webService.asmx/Insert',
+                type: 'post',
+                contentType: 'application/jsons;charset=utf-8',
+                datatype: 'json',
+                data: "{A:'" + $("txtname").val() + "',B:'" + $("txtempid").val() + "',C:'" + $("txtadress").val() + "',D:'" + $("txtage").val() + "',E:'" + $("txtsalary").val() + "',}",
+                sucess: function () {
+                    alert('data has been saved!!!!')
+                },
+                error: function () {
+                    alert('data has been not saved!!!!');
+                }
+            });
+        }
+    </script>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Name :</td>
+            <td><input type="text" id="txtname" /></td>
+        </tr>
+
+        <tr>
+            <td>Employe Id :</td>
+            <td><input type="text" id="txtempid" /></td>
+        </tr>
+
+        <tr>
+            <td>Adress :</td>
+            <td><input type="text" id="txtadress" /></td>
+        </tr>
+
+        <tr>
+            <td>Age :</td>
+            <td><input type="text" id="txtage" /></td>
+        </tr>
+
+
+        <tr>
+            <td>Salary :</td>
+            <td><input type="text" id="txtsalary" /></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="button" id="btnsave" value="Submit" onclick="save()" /></td>
+        </tr>
+    </table>
+
+</body>
+</html>
